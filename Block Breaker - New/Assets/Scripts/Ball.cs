@@ -8,16 +8,20 @@ public class Ball : MonoBehaviour
     [SerializeField] Paddle myPaddle;
     [SerializeField] float xVelocity = 2f;
     [SerializeField] float yVelocity = 15f;
+    [SerializeField] AudioClip[] ballSounds;
 
     bool hasStarted = false;
 
     Vector2 paddleToBallDistance;
 
+    AudioSource myAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-       //this will save the Distance between the Ball and the Paddle
-       paddleToBallDistance = this.transform.position - myPaddle.transform.position;
+        //this will save the Distance between the Ball and the Paddle
+        paddleToBallDistance = this.transform.position - myPaddle.transform.position;
+        myAudioSource = GetComponent<AudioSource>();
        
     }
 
@@ -56,7 +60,9 @@ public class Ball : MonoBehaviour
     {
         if (hasStarted == true)
         {
-            this.GetComponent<AudioSource>().Play();
+            //getting a random clip from the array
+            AudioClip clip = ballSounds[Random.Range(0, ballSounds.Length)];
+            myAudioSource.PlayOneShot(clip);
         }
     }
 
