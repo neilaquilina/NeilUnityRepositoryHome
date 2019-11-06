@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 296366541265499569}
   - component: {fileID: 296366541265499568}
   m_Layer: 0
-  m_Name: Breakable Block
+  m_Name: 3Hit Breakable 1
   m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e16f8d1232a0ac6418bbab44791a91e9, type: 3}
-  m_Color: {r: 1, g: 0.56423336, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.99862754, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,6 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakSound: {fileID: 8300000, guid: 1b978b9a5d597144db926661e2cfe06f, type: 3}
   blockSparklesVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
-  maxHits: 1
+  maxHits: 3
   timesHit: 0
-  hitSprites: []
+  hitSprites:
+  - {fileID: 21300000, guid: 4b4bd84ea074ec1409b847038bb80427, type: 3}
+  - {fileID: 21300000, guid: dc0b47a63bf97ec43a41c8ce9d2c2e2c, type: 3}

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class Block : MonoBehaviour
     [SerializeField] int maxHits;
 
     [SerializeField] int timesHit;
+
+    [SerializeField] Sprite[] hitSprites;
 
     Level level;
 
@@ -40,10 +43,20 @@ public class Block : MonoBehaviour
                 Destroy(this.gameObject);
                 level.BlockDestroyed();
             }
+            else
+            {
+                ShowNextHitSprite();
+            }
             
         }
         
    }
+
+    private void ShowNextHitSprite()
+    {
+        int spriteIndex = timesHit - 1;
+        GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+    }
 
     private void TriggerSparklesVFX()
     {
