@@ -9,23 +9,33 @@ public class BlockSpawner : MonoBehaviour
 
     GameObject randomBlock;
 
-    Vector2 blockPosition;
+    Vector2 blockPosition, startingBlockPosition;
 
     // Start is called before the first frame update
     void Start()
     {
+        startingBlockPosition = transform.position;
         LoadBlocksFromResources();
+        PrintBlocksOnXAndY();
 
-        for (int i = 0; i < 16; i+=2)
+    }
+
+    private void PrintBlocksOnXAndY()
+    {
+        for (int y = 5; y > 1; y--)
         {
-            GetRandomBlock();
-            blockPosition.x = i;
-            SpawnBlocks(randomBlock);
-            
-            print(i);
+            //print block from left to right
+            for (int x = 1; x < 15; x += 2)
+            {
+                GetRandomBlock();
+                SpawnBlocks();
+                blockPosition.x += 2;
+            }
+            //set x position to starting position
+            blockPosition.x = startingBlockPosition.x;
+            //set the y position to below the previous position
+            blockPosition.y -= 2;
         }
-
-
     }
 
     // Update is called once per frame
@@ -48,9 +58,9 @@ public class BlockSpawner : MonoBehaviour
 
     }
 
-    private void SpawnBlocks(GameObject blockToSpawn)
+    private void SpawnBlocks()
     {
-        Instantiate(blockToSpawn, blockPosition, transform.rotation);
+        Instantiate(randomBlock, blockPosition, transform.rotation);
         
 
     }
