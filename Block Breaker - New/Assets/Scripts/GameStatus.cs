@@ -1,17 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameStatus : MonoBehaviour
 {
-    [SerializeField] int pointsPerBlockDestroyed = 80;
 
     [SerializeField] int currentScore = 0;
+
+    [SerializeField] int pointsPerBlockDestoyed = 10;
+
+    [SerializeField] TextMeshProUGUI scoreText;
+
+    private void Awake()
+    {
+
+        int gameStatusCount = FindObjectsOfType<GameStatus>().Length;
+        //if there is more than 1 GameStatus object
+        if (gameStatusCount > 1)
+        {
+            //disable and destroy the last one
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            //keep it 
+            DontDestroyOnLoad(gameObject);
+        }
+        
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        scoreText = FindObjectOfType<TextMeshProUGUI>();
+        scoreText.text = currentScore.ToString(); 
     }
 
     // Update is called once per frame
@@ -22,6 +46,7 @@ public class GameStatus : MonoBehaviour
 
     public void AddToScore()
     {
-        currentScore
+        currentScore += pointsPerBlockDestoyed;
+        scoreText.text = currentScore.ToString();
     }
 }
