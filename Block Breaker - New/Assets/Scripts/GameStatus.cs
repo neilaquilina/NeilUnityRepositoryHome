@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameStatus : MonoBehaviour
 {
+    [SerializeField] int pointsPerBlockDestroyed = 80;
+
+    [SerializeField] int currentScore = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +18,10 @@ public class GameStatus : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void AddToScore()
+    {
+        currentScore
     }
 }
