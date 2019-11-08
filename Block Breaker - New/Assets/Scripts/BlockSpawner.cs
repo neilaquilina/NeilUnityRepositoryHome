@@ -5,7 +5,7 @@ using UnityEngine;
 public class BlockSpawner : MonoBehaviour
 {
 
-    Object[] blocks;
+    GameObject[] blocks;
 
     GameObject randomBlock;
 
@@ -46,7 +46,7 @@ public class BlockSpawner : MonoBehaviour
 
     private void LoadBlocksFromResources()
     {
-        blocks = Resources.LoadAll("Blocks");
+        blocks = Resources.LoadAll<GameObject>("Blocks");
         blockPosition = transform.position;
     }
 
@@ -54,7 +54,7 @@ public class BlockSpawner : MonoBehaviour
     {
         int randomNumber = Random.Range(0, blocks.Length);
 
-        randomBlock = (GameObject) blocks[randomNumber];
+        randomBlock = blocks[randomNumber];
 
     }
 
