@@ -8,14 +8,21 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] List<WaveConfig> waveConfigs;
     
     //we start always from Wave 0
-    int startingWave = 0;
+    [SerializeField] int startingWave = 0;
+
+    [SerializeField] bool looping = false;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
+        do
+        {
+            //start the coroutine that spawns all enemies in our currentWave
+            yield return StartCoroutine(SpawnAllWaves());
+        }
+        //when coroutine SpawnAllWaves finishes check if looping == true
+        while (looping);
         
-        //start the coroutine that spawns all enemies in our currentWave
-        StartCoroutine(SpawnAllWaves());
     }
 
     private IEnumerator SpawnAllWaves()
