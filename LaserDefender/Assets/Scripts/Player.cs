@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] float playerHealth = 100;
+
+    [Header("Player Movement")]
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float padding = 1f;
+
+    [Header("Laser")]
     [SerializeField] GameObject laserPrefab;
     [SerializeField] float laserSpeed = 10f;
     [SerializeField] float laserFirePeriod = 0.1f;
@@ -16,6 +21,8 @@ public class Player : MonoBehaviour
     float yMax;
 
     Coroutine fireCoroutine;
+
+    bool coroutineStart = false;
     
 
     // Start is called before the first frame update
@@ -33,6 +40,36 @@ public class Player : MonoBehaviour
         Fire();
     }
 
+    //reduces health whenever enemy collides with a gameObject which has DamageDealer component
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //access the Damage Dealer from the "other" object which hit the enemy
+        //and depending on the laser damage reduce health
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+
+        //if there is no damageDealer on Trigger
+        //end the method
+        if (!damageDealer)
+        {
+            return;
+        }
+
+        ProcessHit(damageDealer);
+    }
+
+    //whenever ProcessHit is called send us the DamageDealer details
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        playerHealth -= damageDealer.GetDamage();
+        //destroy the laser that hits the Player
+        damageDealer.Hit();
+
+        if (playerHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Fire()
     {
         //we receive an input from the player
@@ -41,14 +78,19 @@ public class Player : MonoBehaviour
         //if a button linkedd to Fire1 is pressed
         if(Input.GetButtonDown("Fire1"))
         {
-
-            fireCoroutine =  StartCoroutine(FireContinuously());
+            if (!coroutineStart)
+            {
+                fireCoroutine = StartCoroutine(FireContinuously());
+                coroutineStart = true;
+            }
+            
 
         }
 
         if (Input.GetButtonUp("Fire1"))
         {
             StopCoroutine(fireCoroutine);
+            coroutineStart = false;
         }
     }
 
