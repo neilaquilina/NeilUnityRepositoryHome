@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: e27bec84c89ce46449f154e9a2a705ed
+  - enabled: 1
     path: Assets/Scenes/LaserDefender.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: d1e5164d75fc04c4c805d5cf29806973
   m_configObjects: {}

@@ -13,9 +13,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] float maxTimeBetweenShots = 3f;
     [SerializeField] GameObject enemyLaserPrefab;
 
-    [SerializeField] float enemyLaserSpeed = 10f;
+    [SerializeField] GameObject deathVFX;
+    [SerializeField] float explosionDuration = 1f;
 
-   
+    [SerializeField] AudioClip enemyDeathSound;
+    [SerializeField] [Range(0,1)] float enemyDeathSoundVolume = 0.75f;
+
+    [SerializeField] AudioClip shootSound;
+    [SerializeField] [Range(0, 1)] float shootSoundVolume = 0.25f;
+
+    [SerializeField] float enemyLaserSpeed = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +52,8 @@ public class Enemy : MonoBehaviour
         GameObject enemyLaser = Instantiate(enemyLaserPrefab, transform.position, Quaternion.identity) as GameObject;
         //enemy laser shoots downwards, hence -enemyLaserSpeed
         enemyLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -enemyLaserSpeed);
+
+        AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position, shootSoundVolume);
     }
 
     //reduces health whenever enemy collides with a gameObject which has DamageDealer component
@@ -72,7 +81,19 @@ public class Enemy : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        //destroy Enemy ship
+        Destroy(gameObject);
+        //create an explosion particle
+        GameObject explosion = Instantiate(deathVFX, transform.position, Quaternion.identity);
+        //destroy after 1 sec
+        Destroy(explosion, explosionDuration);
+        //play the enemyDeathSound, at the position of the Camera, with the given volume
+        AudioSource.PlayClipAtPoint(enemyDeathSound, Camera.main.transform.position, enemyDeathSoundVolume);
     }
 }
