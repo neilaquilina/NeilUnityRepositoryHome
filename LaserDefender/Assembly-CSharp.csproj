@@ -66,6 +66,8 @@
     <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
     <Compile Include="Assets\Scripts\DamageDealer.cs" />
     <Compile Include="Assets\Scripts\MusicPlayer.cs" />
+    <Compile Include="Assets\Scripts\GameSession.cs" />
+    <Compile Include="Assets\Scripts\ScoreDisplay.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

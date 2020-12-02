@@ -5,17 +5,20 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+    [Header("Enemy Stats")]
     [SerializeField] float health = 100;
+    [SerializeField] int scoreValue = 50;
 
+    [Header("Shooting")]
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
     [SerializeField] GameObject enemyLaserPrefab;
 
+    [Header("Effects")]
     [SerializeField] GameObject deathVFX;
     [SerializeField] float explosionDuration = 1f;
-
+    
     [SerializeField] AudioClip enemyDeathSound;
     [SerializeField] [Range(0,1)] float enemyDeathSoundVolume = 0.75f;
 
@@ -87,6 +90,8 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        //add score to GameSession score
+        FindObjectOfType<GameSession>().AddToScore(scoreValue);
         //destroy Enemy ship
         Destroy(gameObject);
         //create an explosion particle
