@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float playerHealth = 100;
+    [SerializeField] int playerHealth = 100;
 
     [Header("Player Movement")]
     [SerializeField] float moveSpeed = 10f;
@@ -84,6 +84,12 @@ public class Player : MonoBehaviour
         Destroy(gameObject);
         AudioSource.PlayClipAtPoint(playerDeathSound, Camera.main.transform.position, playerDeathSoundVolume);
     }
+
+    public int GetHealth()
+    {
+        return playerHealth;
+    }
+
 
     private void Fire()
     {

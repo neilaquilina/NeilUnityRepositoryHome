@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10fdf1b6189330149b3964b3a47d282a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 100
+  playerHealth: 500
   moveSpeed: 10
   padding: 1
   playerDeathSound: {fileID: 8300000, guid: b73a21745c240b049b6eaa9243a66053, type: 3}
