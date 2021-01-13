@@ -8,7 +8,7 @@ using UnityEngine.Scripting.APIUpdating;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float health = 100f;
+    [SerializeField] int health = 500;
 
     //a variable that can be edited from Unity    
     [SerializeField] float moveSpeed = 10f;
@@ -43,6 +43,11 @@ public class Player : MonoBehaviour
     {
         Move();
         Fire();
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 
     //reduces health whenever Player collides with a gameObject 

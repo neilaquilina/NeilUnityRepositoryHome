@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - EnemyPathing
     - EnemySpawner
     - GameSession
+    - HealthDisplay
     - Level
     - MusicPlayer
     - Player
@@ -39,6 +40,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/GameOver.unity:
@@ -71,25 +74,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11816}
     - Class: 114
-      Script: {instanceID: 11844}
+      Script: {instanceID: 11818}
     - Class: 114
-      Script: {instanceID: 12156}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 12780}
+      Script: {instanceID: 12502}
     - Class: 114
-      Script: {instanceID: 12922}
+      Script: {instanceID: 12782}
     - Class: 114
-      Script: {instanceID: 13704}
+      Script: {instanceID: 12924}
     - Class: 114
-      Script: {instanceID: 14076}
+      Script: {instanceID: 13708}
     - Class: 114
-      Script: {instanceID: 14416}
+      Script: {instanceID: 14080}
     - Class: 114
-      Script: {instanceID: 15156}
+      Script: {instanceID: 14420}
     - Class: 114
-      Script: {instanceID: 15160}
+      Script: {instanceID: 15162}
     - Class: 114
-      Script: {instanceID: 17442}
+      Script: {instanceID: 15166}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -146,37 +149,43 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11816}
     - Class: 114
-      Script: {instanceID: 11844}
+      Script: {instanceID: 11818}
     - Class: 114
-      Script: {instanceID: 12012}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 12052}
+      Script: {instanceID: 12014}
     - Class: 114
-      Script: {instanceID: 12122}
+      Script: {instanceID: 12054}
     - Class: 114
-      Script: {instanceID: 12156}
+      Script: {instanceID: 12124}
     - Class: 114
-      Script: {instanceID: 12780}
+      Script: {instanceID: 12210}
     - Class: 114
-      Script: {instanceID: 12922}
+      Script: {instanceID: 12502}
     - Class: 114
-      Script: {instanceID: 13224}
+      Script: {instanceID: 12782}
     - Class: 114
-      Script: {instanceID: 13248}
+      Script: {instanceID: 12924}
     - Class: 114
-      Script: {instanceID: 13302}
+      Script: {instanceID: 13226}
     - Class: 114
-      Script: {instanceID: 14598}
+      Script: {instanceID: 13250}
     - Class: 114
-      Script: {instanceID: 14910}
+      Script: {instanceID: 13304}
     - Class: 114
-      Script: {instanceID: 15156}
+      Script: {instanceID: 13648}
     - Class: 114
-      Script: {instanceID: 15160}
+      Script: {instanceID: 14602}
     - Class: 114
-      Script: {instanceID: 16130}
+      Script: {instanceID: 14914}
     - Class: 114
-      Script: {instanceID: 17442}
+      Script: {instanceID: 15126}
+    - Class: 114
+      Script: {instanceID: 15162}
+    - Class: 114
+      Script: {instanceID: 15166}
+    - Class: 114
+      Script: {instanceID: 15212}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -231,27 +240,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11816}
     - Class: 114
-      Script: {instanceID: 11844}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 12780}
+      Script: {instanceID: 12782}
     - Class: 114
-      Script: {instanceID: 12922}
+      Script: {instanceID: 12924}
     - Class: 114
-      Script: {instanceID: 12980}
+      Script: {instanceID: 12982}
     - Class: 114
-      Script: {instanceID: 13704}
+      Script: {instanceID: 13708}
     - Class: 114
-      Script: {instanceID: 14076}
+      Script: {instanceID: 14080}
     - Class: 114
-      Script: {instanceID: 14096}
+      Script: {instanceID: 14100}
     - Class: 114
-      Script: {instanceID: 14416}
+      Script: {instanceID: 14420}
     - Class: 114
-      Script: {instanceID: 14814}
+      Script: {instanceID: 14818}
     - Class: 114
-      Script: {instanceID: 15156}
+      Script: {instanceID: 15162}
     - Class: 114
-      Script: {instanceID: 15160}
+      Script: {instanceID: 15166}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -277,6 +286,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 699619b86d9359741a4f58540298c80b
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Text
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -343,12 +358,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 699619b86d9359741a4f58540298c80b
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Text
   - hash:
       serializedVersion: 2
       Hash: fd8b23ad3c9e81bc85b197495bc510ac
@@ -427,6 +436,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScoreDisplay
   - hash:
       serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
@@ -549,7 +564,7 @@ ScriptsOnlyBuild:
     className: EnemyPathing
   - hash:
       serializedVersion: 2
-      Hash: 8cd02938e8257db33658ba001d0191da
+      Hash: 648a0f835f8778913a12d327a1dbfb2b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -583,6 +598,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HealthDisplay
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -759,6 +780,12 @@ ScriptsOnlyBuild:
     className: TestRunCallbackListener
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameSession
+  - hash:
+      serializedVersion: 2
       Hash: f1d735cc1a21c3704ab52568f4fbfcf8
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner
@@ -811,21 +838,9 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameSession
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ScoreDisplay
   platform: 5
   scenePathNames:
   - Assets/Scenes/StartMenu.unity
   - Assets/Scenes/LaserDefender.unity
   - Assets/Scenes/GameOver.unity
-  playerPath: D:/MCAST/Unity2020/NeilUnityRepositoryHome/LaserDefender/Build/LaserDefender.exe
+  playerPath: D:/MCAST/Unity2020/Build/LaserDefender.exe
